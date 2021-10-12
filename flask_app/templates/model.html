@@ -1,0 +1,78 @@
+{% block head %}
+<title>프로야구 타자 연봉예측</title> 
+{% endblock %}
+
+{% block body %}
+<br>
+
+<h1>&#9918; 프로야구 타자 연봉예측 &#128181;</h1>
+
+<br>
+<br>
+
+<h3>statiz.co.kr 사이트에서 국내 프로야구선수들의 데이터를 활용하였습니다.</h3>
+<h3>타자들의 성적과 연봉 데이터를 활용하여 연봉을 예측하는 서비스입니다.</h3>
+<br>
+<br>
+
+<img class="fit-picture" src="https://post-phinf.pstatic.net/MjAxODA1MjRfMTU2/MDAxNTI3MTQzODQ0Njkx.1YOGnqBRc_ZbCPNGbgGZE9jSppLB9GotQh50gFhuDUcg.8Tq36iL65D7Tj9bPcL344WquDHbDH8ZEqzdbbbL0k4wg.JPEG/01.jpg?type=w1200">
+<br>
+<br>
+
+<h7>아래 수치를 입력하고 예측결과를 클릭해주세요.</h7>
+<br>
+<br>
+
+
+<div>
+    <form id="upload" action="/predicted" method="POST">
+        <div>
+            <h3>1. 타수</h3>
+            <br>
+            <label for="num1"> 타수입력 :  </label>
+            <input type="number" value="num1" name="num1">
+        </div>
+        <br>
+        <div>
+            <h3>2. 타율</h3>
+            <h7>(예시 : 0.307)</h7>
+            <br>
+            <label for="num2"> 타율입력 : </label>
+            <input type="number" step=0.001 value="num2" name="num2">
+        </div>
+        <br>
+        <div>
+            <h3>3. 홈런</h3>
+            <br>
+            <label for="num3"> 홈런개수 입력 : </label>
+            <input type="number" value="num3" name="num3">
+        </div>
+        <br>
+        <div>
+            <h3>4. 병살</h3>
+            <br>
+            <label for="num4"> 병살개수 입력 : </label>
+            <input type="number" value="num4" name="num4">
+        </div>
+        <br>
+        <div>
+            <h3>5. 삼진</h3>
+            <br>
+            <label for="num5"> 삼진개수 입력 : </label>
+            <input type="number" value="num5" name="num5">
+        </div>
+        <br>
+        <br>
+        <input class="btn btn-primary" type="submit" value="예측 결과">
+        {% if predicted %}
+            <span class="result_lable">
+               예상되는 선수의 연봉은 : {{ predicted }} (만원) 입니다.
+            </span>
+        {% endif %}
+    </form>
+</div>
+
+<br>
+<br>
+
+{% endblock %}
